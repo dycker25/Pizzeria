@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mi Sistema Solar</title>
+  <style>
+    body {
+      background: black;
+      overflow: hidden;
+      margin: 0;
+    }
+    #sol {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100px;
+      height: 100px;
+      margin-left: -50px;
+      margin-top: -50px;
+      background: yellow;
+      border-radius: 50%;
+      box-shadow: 0 0 30px yellow;
+    }
+    #planeta {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: blue;
+      border-radius: 50%;
+      box-shadow: 0 0 10px blue;
+      cursor: pointer;
+    }
+    #Tierra {
+      position:absolute;
+      width: 40px;
+      height: 40px;
+      background: green;
+      border-radius: 50%;
+      box-shadow: 0 0 10px blue;
+      cursor: pointer;
+    }
+    #marte {
+      position:absolute;
+      width: 40px;
+      height: 40px;
+      background: pink;
+      border-radius: 50%;
+      box-shadow: 0 0 10px blue;
+      cursor: pointer;
+   }
+  </style>
+</head>
+<body>
+  <div id="sol"></div>
+  <div id="planeta" onclick="mostrarInfo()"></div>
+  <div id="Tierra" onclick="mostrarInfoTierra()"></div>
+  <div id="marte" onclick="mostrarInfomarte()"></div>
+
+  <script>
+  /Fragmento del planeta/
+   // planeta
+   //variables 
+    let planeta = document.getElementById('planeta');
+    let angulo = 0;
+    let radio = 150; // distancia del planeta al Sol
+ //Funciones
+ /una función es un bloque de código diseñado para realizar una tarea específica/
+    function moverPlaneta() {
+      angulo += 0.02;
+      let x = window.innerWidth / 2 + radio * Math.cos(angulo) - 20;
+      let y = window.innerHeight / 2 + radio * Math.sin(angulo) - 20;
+      planeta.style.left = x + 'px';
+      planeta.style.top = y + 'px';
+      requestAnimationFrame(moverPlaneta);
+    }
+
+    function mostrarInfo() {
+      alert('¡Hola! Soy un planeta llamado Tierra. Gira alrededor del Sol.');
+    }
+ //mandamos a llamar la funcion
+    moverPlaneta();
+   
+   /Fragmento del planeta Tierra/
+   // Tierra
+   //variables 
+  let Tierra = document.getElementById('Tierra');
+     let anguloTierra = 10;
+     let radioTierra = 250; // distancia del planeta al Sol
+  //Funciones
+  function moverPlanetaTierra() {
+      anguloTierra += 0.02;
+      let x = window.innerWidth / 2 + radioTierra * Math.cos(anguloTierra) - 20;
+      let y = window.innerHeight / 2 + radioTierra * Math.sin(anguloTierra) - 20;
+      Tierra.style.left = x + 'px';
+      Tierra.style.top = y + 'px';
+      requestAnimationFrame(moverPlanetaTierra);
+    }
+     function mostrarInfoTierra() {
+      alert('¡Hola! Soy un planeta llamado Tierra. Gira alrededor del Sol.');
+    }
+    moverPlanetaTierra();
+    /Fragmento del planeta Marte/
+   // Marte
+   //variables 
+  let marte = document.getElementById('marte');
+     let angulomarte = 20;
+     let radiomarte = 250; // distancia del planeta al Sol
+  //Funciones
+  function moverPlanetamarte() {
+      angulomarte += 0.02;
+       let x = window.innerWidth / 2 + radiomarte * Math.cos(angulomarte) - 20;
+       let y = window.innerHeight / 2 + radiomarte * Math.sin(angulomarte) - 20;
+       marte.style.left = x + 'px';
+       marte.style.top = y + 'px';
+      requestAnimationFrame(moverPlanetamarte);
+   }
+   moverPlanetamarte();
+   function mostrarInfomarte() {
+      alert('¡Hola! Soy un planeta llamado marte. Gira alrededor del Sol.');
+    }
+    
+  </script>
+</body>
+</html>
